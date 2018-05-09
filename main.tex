@@ -1,0 +1,535 @@
+\documentclass[a4paper,11pt]{book}
+
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%% GEOMETRY %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\usepackage[top=Bcm, bottom=Hcm, outer=Ccm, inner=Acm, heightrounded, marginparwidth=Ecm, marginparsep=Dcm]{geometry}		
+\usepackage[outer=5cm, heightrounded, marginparwidth=4cm, marginparsep=0.5cm]{geometry}														
+																																										
+%%%%%%%%%%%%%%%%%%%%%%% Document Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[T1]{fontenc} 		% to get Type 1 fonts
+\usepackage[utf8]{inputenc} 	% to enable non ASCII characters
+\usepackage{lmodern}
+\usepackage[english]{babel}
+\usepackage{quotchap}
+\usepackage{marginnote}
+\usepackage{xcolor}
+\usepackage{xargs}     			% Use more than one optional parameter in a new commands
+\usepackage{ragged2e}
+\usepackage{setspace}
+\usepackage{calc}				%Adds in­fix ex­pres­sions to per­form arith­metic on the ar­gu­ments of the LATEX com­mands \set­counter, 
+									%\ad­dto­counter, \setlength, and \ad­dtolength. 
+\usepackage{calculator}
+\usepackage{hyphenat}		%prevent hyphenation
+\usepackage{twoopt}			%Create commands with two optional arguments
+
+\usepackage[titletoc,title]{appendix}
+\usepackage{imakeidx} 
+\usepackage{cleveref}
+\usepackage{hyperref}
+
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% Columns, tables, and Lists %%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{multicol}
+\usepackage{tabu}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{stackengine}		%pro­vides a ver­sa­tile way to stack ob­jects ver­ti­cally in a va­ri­ety of cus­tomiz­able ways
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Boxes %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{float}				%Im­proves the in­ter­face for defin­ing float­ing ob­jects such as fig­ures and ta­bles
+\usepackage[export]{adjustbox}
+\usepackage{mdframed}
+\usepackage{changepage}
+
+\usepackage[most,breakable,many]{tcolorbox}
+\tcbset{before skip=0pt,after skip=0pt} 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Verbatim and Dummy Text %%%%%%%%%%%%%%%%%%%
+\usepackage{lipsum}			% dummy text
+\usepackage{verbatim}
+\usepackage{fancyvrb}
+\usepackage{listings}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Graphing %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{standalone}		%allows users to easily place picture environments or other material in own source 
+									%files and compile these on their own or as part of a main document
+\usepackage{graphicx}			%figure handler
+\usepackage{wrapfig}			%wrap figures
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{transparent}
+\usepackage{pgfplots}
+%\usetikzlibrary{positioning}
+\usepackage{tikz}
+
+%%%%%%%%%%%%%%%%%%%%%%% Math Symbols %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{mathtools}		%use math environments
+\usepackage{amssymb}  		%use math symbols
+\usepackage{amsthm}		
+\usepackage{amsmath}
+\usepackage{cancel}			%cross out terms
+\usepackage{gensymb}	    		% to use the degree symbol
+\usepackage{eucal}        		% Caligraphy style font
+\usepackage{mathrsfs}     		% script style font
+\usepackage{esint}				%cyclic integral
+\usepackage{MnSymbol}
+
+%%%%%%%%%%%%%%%%%%%%%%%% UNITS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+													
+\usepackage{siunitx}																	
+																							
+  \let\DeclareUSUnit\DeclareSIUnit													
+  \let\US\SI																				
+																							
+  %length units																			
+  \DeclareUSUnit\inch{in}													
+  \DeclareUSUnit\feet{ft}																
+  \DeclareUSUnit\yard{yd}																
+  \DeclareUSUnit\mile{mi}																
+																							
+  %Volume units																			
+  \DeclareUSUnit\floz{fl oz}																
+  \DeclareUSUnit\gallon{gal}					
+
+  %Surface units		
+  \DeclareSIUnit\are{a}	
+  \DeclareUSUnit\acre{ac}		
+																							
+  %Temperature Units																	
+  \DeclareUSUnit\fahrenheit{\SIUnitSymbolDegree F}								
+																							
+  %Mass units																			
+  \DeclareUSUnit\ton{ton}																
+  \DeclareUSUnit\pound{lb}															
+																							
+  %Pressure units																		
+  \DeclareUSUnit\torr{torr}																
+  \DeclareUSUnit\mmHg{mmHg}														
+  \DeclareUSUnit\atm{atm}															
+  \DeclareUSUnit\bar{bar}																
+  \DeclareUSUnit\psi{psi}																
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% Margin Note %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand*\mnote[3][0pt]{%
+  \if l#2\reversemarginpar\def\pointer{\filledmedtriangleright}%
+    \def\stackalignment{r}\fi%
+  \if r#2\normalmarginpar\def\pointer{\filledmedtriangleleft}%
+    \def\stackalignment{l}\fi%
+  \marginpar{%
+    \topinset{%
+      \scalebox{1.5}{\textcolor{blue}{$\pointer$}}}{%
+      \belowbaseline[-1.5\baselineskip-#1]{%
+        \stackengine%
+          {-5pt}%
+          {\fcolorbox{blue}{white}{\parbox{1.8cm}%
+            {\vspace{3pt}\raggedright#3}}}%
+          {~\colorbox{white}{\sffamily Note}}%
+          {O}%
+          {l}%
+          {F}%
+          {F}%
+          {S}%
+        }%
+      }{%
+      3ex+#1}{%
+      -2ex}%
+  }%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%% Defining a frame %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\mdfdefinestyle{MyFrame}{%
+    %linecolor=blue,
+    outerlinewidth=3pt,
+    roundcorner=10pt,
+    innertopmargin=\baselineskip,
+    innerbottommargin=\baselineskip,
+    innerrightmargin=20pt,
+    innerleftmargin=20pt,
+    %backgroundcolor=gray!50!white
+    }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% Useful short Commands %%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newcommand{\EMPH}[1]{\textit{#1}}
+\newcommandtwoopt{\magn}[3][][]{\left|\vec{#3}^{#2}_{\textit{\tiny #1}} \right|}		% Magnitude of a vector: 1st command is the subindex, 2nd the superindex, third the vector
+\newcommand{\der}[2]{\frac{d}{d#2}\left(#1\right)}								% Derivative
+\newcommand{\nder}[3]{\frac{d^{#3}}{d#2^{#3}}\left(#1\right)}			% Nth Derivative
+\newcommand{\pder}[2]{\frac{\partial}{\partial#2}\left(#1\right)}				% Partial Derivative
+\newcommand{\npder}[3]{\frac{\partial^{#3}}{\partial#2^{#3}}\left(#1\right)}%Nth Partial Derivative
+
+\newcommand{\modulo}[2]{%
+  \FPeval{\result}{trunc(#1-(#2*trunc(#1/#2,0)),0)}\result%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% dummy text by lines %%%%%%%%%%%%%%%%%%%%%%%%%%
+\newbox\one																																																
+\newbox\two																																																
+\long\def\loremlines#1{%																																												
+    \setbox\one=\vbox {%																																														
+      \lipsum																																						
+     }%																																																		
+   \setbox\two=\vsplit\one to #1\baselineskip%																																					
+   \unvbox\two}%																																														
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Objectives %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%								
+																																								
+\newtcolorbox{objbox}[1]{colback=red!5!white,colframe=red!75!black,fonttitle=\bfseries,title=#1}	%							
+\newenvironment{objectives}{%																														
+	\begin{objbox}{Objectives:} \begin{list}{\(\bullet\)}{}%																					
+}{%																																							
+	\end{list} \end{objbox}%																															
+}%																																							
+																																								
+%%%%%%%%%%%%%%%%%%%%%%%%%% Some Theorems %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newtheorem{definition}{Definition}																												
+%\newtheorem{example}{Example}																												
+\newtheorem{case}{Real Life Example}																											
+																																								
+																																								
+%%%%%%%%%%%%%%%%%%%%%%%%%% Definition %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtcbtheorem[number within=chapter]{definition}{Definition}%																		
+{colback=green!5,colframe=green!35!black,fonttitle=\bfseries}{th}%																	
+																																								
+%%%%%%%%%%%%%%%%%%%%%%%%%% Description %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%								
+\newlist{Description}{description}{3}%																											
+\setlist[Description]{style=nextline}%																												
+\SetEnumitemKey{margin}{leftmargin={\widthof{#1}+2em}}%																			
+																																								
+%%%%%%%%%%%%%%%%%%%%%%%%%% Example %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+																									
+\newtcbtheorem[number within=section]{example}{Example}%																			
+{colback=blue!5,colframe=blue!35!black,fonttitle=\bfseries, before skip=5pt,after skip=10pt,righttitle=\linewidth}{th}%																		
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% Exercise %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+																									
+\newtcbtheorem[number within=section]{exercise}{Exercise}%																			
+{colback=blue!5,colframe=blue!35!black,fonttitle=\bfseries, before skip=5pt,after skip=10pt}{th}%																		
+																																								
+%%%%%%%%%%%%%%%%%%%%%%%%%% Hint Note %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+											
+\newcounter{hint}																																		
+\newtcolorbox[use counter=hint]																														
+  {hint}[1][]																																				
+  {title=Hint~\thetcbcounter,																															
+   width=4cm,																																				
+   left=0pt,																																					
+   right=0pt,																																				
+   fonttitle=\bfseries\color{white},																													
+   colframe=orange,																																		
+   colback=orange!10,																																	
+   #1																																							
+}   																																							
+\newcommand\Hint[3][]{%																															
+  \marginnote[#1]{%																																	
+    \makebox[0pt][l]{\begin{hint}[label=#3]																										
+    #2																																							
+    \end{hint}}}}%																																		
+    																																							
+%%%%%%%%%%%%%%%%%%%%%%%%% Important Note %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+										
+\newcounter{important}                                                                                                                              
+\newtcolorbox[use counter=important]                                                                                                                
+{important}[1][]                                                                                                                                          
+{title=Important Note~\thetcbcounter, 
+  center title,                                                                                                        
+  width=4cm,                                                                                                                                               
+  left=0pt,                                                                                                                                                    
+  right=0pt,                                                                                                                                               
+  fonttitle=\bfseries\color{black},                                                                                                                    
+  colframe=orange,                                                                                                                                      
+  colback=orange!10,                                                                                                                                        
+  #1                                                                                                                                                           
+}                                                                                                                                                               
+
+\newcommand{\isimportant}[3][]{%
+  \ifodd\value{page}
+  \marginnote{%
+    \makebox[0pt][l]{%
+      \begin{important}[label=#3]
+        #2%
+      \end{important}%
+    }%
+  }[\ifblank{#1}{0pt}{#1}]%
+  \else
+  \marginnote[%
+  {%
+    \makebox[0pt][r]{%
+      \begin{important}[label=#3]%
+        #2%
+      \end{important}
+    }%
+  }]{}[\ifblank{#1}{0pt}{#1}]%
+  \fi
+}
+%%%%%%%%%%%%%%%%%%%%%%%%% Remember Note %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+										
+\newcounter{remember}																																
+\newtcolorbox[use counter=remember]																												
+  {remember}[1][]																																			
+  {title=Remember ~\thetcbcounter,																											
+   width=4cm,																																				
+   left=0pt,																																					
+   right=0pt,																																				
+   fonttitle=\bfseries\color{white},																													
+   colframe=violet,																																		
+   colback=violet!10,																																		
+   #1																																							
+}   																																							
+\newcommand\Remember[3][]{%																													
+  \marginnote[#1]{%																																	
+    \makebox[0pt][l]{\begin{remember}[label=#3]																								
+    #2																																							
+    \end{remember}}}}%	
+
+%%%%%%%%%%%%%%%%%%%%%%%%% Todo Notes %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommandx{\unsure}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
+\newcommandx{\change}[2][1=]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
+\newcommandx{\info}[2][1=]{\todo[linecolor=OliveGreen,backgroundcolor=OliveGreen!25,bordercolor=OliveGreen,#1]{#2}}
+\newcommandx{\improvement}[2][1=]{\todo[linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{#2}}
+\newcommandx{\thiswillnotshow}[2][1=]{\todo[disable,#1]{#2}}																															
+    																																							
+%%%%%%%%%%%%%%%%%%%%%%%%% Common abbreviations %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newcommand{\etal}{\textit{et al}. }
+\newcommand{\ie}{\textit{i}.\textit{e}. }
+\newcommand{\eg}{\textit{e}.\textit{g}. }
+\newcommand{\Index}[1]{\index{#1}\nohyphens{\textbf{\textsc{#1}}}}
+
+\newcommand{\command}[1]{\texttt{\string#1}}
+\newcommand{\sub}[2]{#1^{}_{\textnormal{\tiny #2}}\ }		%smaller subindex
+%%%%%%%%%%%%%%%%%%%%%%%%% Columns with equations %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcolumntype{C}{>{$}c<{$}}
+\newcolumntype{L}{>{$}l<{$}}
+\newcolumntype{R}{>{$}r<{$}}
+
+\newcolumntype{E}{>{\begin{minipage}{5cm}\begin{equation*}}c<{\end{equation*}\end{minipage}}}
+																													
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Chapter quote at the start of chapter        %
+% Source: http://tex.stackexchange.com/a/53380 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\renewcommand{\@chapapp}{}% Not necessary...
+\newenvironment{chapquote}[2][2em]
+  {\setlength{\@tempdima}{#1}%
+   \def\chapquote@author{#2}%
+   \parshape 1 \@tempdima \dimexpr\textwidth-2\@tempdima\relax%
+   \itshape}
+  {\par\normalfont\hfill--\ \chapquote@author\hspace*{\@tempdima}\par\bigskip}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand{\vec}[1]{\mathbf{#1}}	%changes vectors to boldtype
+\let\oldhat\hat
+%\renewcommand{\hat}[1]{\oldhat{\mathbf{#1}}}
+\renewcommand{\hat}[1]{\boldsymbol{\oldhat{\mathbf{#1}}}}
+\newcommand{\ihat}{\hat{\textbf{\i}}}
+\newcommand{\jhat}{\hat{\textbf{\j}}}
+\newcommand{\khat}{\hat{\textbf{k}}}
+
+
+
+\begin{comment}
+%%%%%%%%%%%%%%%%%%%%Questions%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\newcommand{\printquestions}{%
+  \section*{Questions}                     
+  \begin{enumerate}
+  \let\contentsline\originalcontentsline
+  \def\@noitemerr{\@latex@warning{Empty questions list}}%
+  \@starttoc{qst}
+  \end{enumerate}
+}
+\newcommand{\l@qst}[3]{#1}
+\makeatother
+
+\NewEnviron{questions}
+ {%
+  \addcontentsline{qst}{qst}{%
+    \noexpand\unexpanded{\unexpanded\expandafter{\BODY}}%
+  }%
+ }
+\end{comment}
+%%%%%%%%%%%%%%%%%%%Question%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{etoc}
+
+\setcounter{secnumdepth}{3}
+\newcounter{question}[chapter]
+\renewcommand\thequestion{\thechapter.\arabic{question}}
+\makeatletter 
+\newcommand\question{\@startsection{question}{3}{\z@}%
+                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                     {1.5ex \@plus .2ex}%
+                                     {\normalfont\normalsize}}
+\let\questionmark\@gobble
+\makeatother
+\etocsetlevel{question}{3}%
+
+\newcommand{\printquestions}{%
+\begingroup
+\etocsetlevel{question}{2}%
+\etocsetlevel{part}{3}%
+%\etocsetlevel{chapter}{3}%
+\etocsetstyle{chapter}{}{}{\addvspace{10pt}}{}
+\etocsetlevel{section}{3}%
+\etocsetlevel{subsection}{3}%
+\etocsetstyle{question}{}{}
+{\noindent\etocnumber\hskip.5em\etocname\hfill\etocpage\par}{}
+\etocsettocstyle{\section*{Questions}}{}
+\tableofcontents
+\endgroup}
+
+\newtcbtheorem[number within=section]{answer}{Answer}%																			
+{colback=blue!5,colframe=blue!35!black,fonttitle=\bfseries, before skip=5pt,after skip=10pt}{th}%	
+
+%********************************************************
+
+%%%%%%%%%%%%%%%QUESTION BOX%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\NewTColorBox[auto counter,number within=section,list inside={questions}]{Question}{+O{}}{ %
+enhanced,colframe=red!20!black,colback=yellow!15!white,coltitle=red!40!black,
+fonttitle=\bfseries,
+underlay={\begin{tcbclipinterior}
+\shade[inner color=red!50!yellow,outer color=yellow!10!white];
+\end{tcbclipinterior}},
+title={Question:},
+label={questions@\thetcbcounter},
+attach title to upper=\quad
+}
+
+
+\usepackage{xcolor}
+    \colorlet{Mycolor1}{red!40!black}
+\newcommand{\solution}{\tcblower \textbf{\textcolor{Mycolor1}{Solution:}}\hphantom{so}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%Example BOX%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtcolorbox[auto counter,number within=section,list inside={examples}]{examplebox}[1]{ 
+    enhanced,colframe=red!20!black,colback=yellow!15!white,coltitle=red!40!black,
+    fonttitle=\bfseries,
+    underlay={\begin{tcbclipinterior}
+    \shade[inner color=red!50!yellow,outer color=yellow!10!white];
+    \end{tcbclipinterior}},
+    title={Example:  #1\\[2ex]},
+    label={examples@\thetcbcounter},
+    attach title to upper=\quad}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%DIAGRAMS%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{tikz}
+\usetikzlibrary{mindmap}
+\usetikzlibrary{calc,trees,positioning,arrows,chains,shapes.geometric,%
+    decorations.pathreplacing,decorations.pathmorphing,shapes,%
+    matrix,shapes.symbols}
+    
+\tikzset{
+>=stealth',
+  punktchain/.style={
+    rectangle, 
+    rounded corners, 
+    % fill=black!10,
+    draw=black, very thick,
+    text width=10em, 
+    minimum height=3em, 
+    text centered, 
+    on chain},
+  line/.style={draw, thick, <-},
+  element/.style={
+    tape,
+    top color=white,
+    bottom color=blue!50!black!60!,
+    minimum width=8em,
+    draw=blue!40!black!90, very thick,
+    text width=10em, 
+    minimum height=3.5em, 
+    text centered, 
+    on chain},
+  every join/.style={->, thick,shorten >=1pt},
+  decoration={brace},
+  tuborg/.style={decorate},
+  tubnode/.style={midway, right=2pt},
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%Highlighting%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[bordercolor=white,backgroundcolor=gray!30,linecolor=black,colorinlistoftodos]{todonotes}
+\newcommand{\rework}[1]{%
+\todo[color=yellow,inline,caption={}]{Rework: {#1}}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\title{Stats Summaries}
+\date{}
+\makeindex[columns=3, title=Index of Concepts, intoc]
+
+\author{
+  Mahoma Iza Villalba\\
+  physics.international@gmail.com\\
+  Beijing National Day School
+  \and
+  Eldon Jiang\\
+  eldonjiang@foxmail.com\\
+  Beijing National Day School
+}
+
+\begin{document}
+\maketitle
+\tableofcontents
+%\listoffigures
+%\listoftables
+					
+\include{chapter_probability}
+
+\include{chapter_intuitive}
+
+\include{chapter_univariate}
+
+\include{chapter_categorical}
+
+\include{chapter_bivariate}
+
+\include{chapter_comparing}
+
+\begin{appendices}
+
+\include{appendix_latex}
+
+\end{appendices}
+
+\printindex
+% to add the bibliography, uncomment the following lines
+%\bibliography{references}{}
+%\bibliographystyle{plain}
+
+\end{document}
+ 	

@@ -1,0 +1,349 @@
+\section{Data Collection}
+
+\subsection{Measurement}
+\begin{objectives}
+\item Distinguish between Qualitative and Quantitative Data
+\item Define Metric Variables
+\item Distinguish between Ratio and Interval Variables
+\item Distinguish between Discrete and Continuous Variables
+\item Deal with the paradoxes of classification of Data
+\item Distinguish between Nominal and Ordinal Variables
+\item Distinguish between Estimation and Calculation
+\item Distinguish between Uncertainty and Precision
+\item Distinguish between first and second hand data
+\item Determine if a second-hand data source is good
+\item Distinguish between Experimental and Observational Studies
+\item Distinguish between Population and Sample
+\item Distinguish between Parameters and Statistics
+\item Distinguish between Census and Survey
+\item Describe the concept of Degrees of Freedom
+\end{objectives}
+
+\newpage
+
+The first thing we need to do before we collect data is understand what type of data we are trying to collect. In terms of the possible outcomes that we can get from an observation or measurement, statistical data can be classified, broadly, into 
+
+\begin{itemize}
+\item Quantitative or Numerical
+\item Qualitative or Categorical
+\end{itemize}
+
+\subsubsection{Data Types}
+\noindent \Index{Categorical Data} have the characteristic that they are just labels (categories): female or male; blue or red or yellow; yes or no; low income, middle income, high income; just to name a few. And when an observation is made the outcome will belong to one of these categories.
+\\ 
+When the categories have a natural order, we say that the data is \Index{Ordinal}. Examples of Ordinal data include
+\begin{multicols}{2}
+\begin{itemize}
+\item monday, tuesday, wednesday,\textellipsis
+\item 0-10, 11-20, 21-30, \textellipsis
+\item 10th grade, 11th grade, 12th grade
+\item January, February, March, \textellipsis
+\item yesterday, today, tomorrow
+\item 4:00pm, 5:00pm, 6:00pm, \textellipsis
+\end{itemize}
+\end{multicols}
+
+
+On the other hand, \Index{Numerical Data} results in numbers. These numbers can be integers, positives, negatives, zero, or Reals, depending on the type of variable we are working with.
+\\
+Depending on its properties, numerical data can be classified in either \Index{Discrete} or \Index{Continuous}. 
+\vspace{0.5cm}
+The outcomes of \textbf{Discrete variables} come from counting; from answering questions of the type ``how many\textellipsis'' or ``the number of \textellipsis''. 
+Common examples of Discrete data include the outcomes of rolling two dice and getting their sum, spending money, the number of combinations of something, the possible arrangements, etc.
+
+\isimportant{The more outcomes there are available for a Discrete Variable, the more it will look like a Continuous Variable}{imp:discrete}
+
+\textbf{Continuous variables} have an infinite number of possible outcomes. And although in the practice we are limited by the precision of our measurement instruments — which effectively transform the wide interval of outcomes into a finite set of possible measurements—, if the phenomenon observed is known to have a continuous nature (like time, distance, mass, etc.) we will assign it a continuous variable. \\
+
+In the case of a difficult distinction between \textbf{Discrete} and \textbf{Continuous} data we will follow a simple rule:
+
+If for practical purposes
+\begin{equation}
+    \frac{1}{\texttt{total number of possible outcomes}}\to 0
+\end{equation}
+
+then we should consider that the variable behaves as a continuous one, and a discrete one otherwise.
+
+Discrete Variables are also known as \Index{Countable}, and Continuous Variables as \Index{Metric}.\vspace{0.5cm}
+
+Metric variables, themselves, are classified as \Index{Ratio} or \Index{Interval} depending on whether the measurement scale has an absolute zero or not. \\ In this way, the Celsius Scale produces Interval data while the Kelvin Scale produces Ratio data.
+
+The reason for this distinction comes from the fact that for \textbf{Ratio} data, two observations with values \(x_1=k\) and \(x_2=2k\) imply that \(x_2\) is twice as large as \(x_1\); but for \textbf{Interval} data this is not necessarily true. 
+
+\isimportant{In ratio variables, zero means Absence of something}{}
+For example, the decibels \(db\) scale for sound, or the Richter scale for earthquakes, or the pH scale for acidity are all logarithmic scales, and in these cases an observation \(x_1=5\) is ten times larger than another one \(x_2=4\). The Celsius scale is also an Interval scale, \ie \(x_1=\SI{40}{\celsius}\) is not twice as large as \(x_2=\SI{20}{\celsius}\). This is because the zero of the Celsius scale is arbitrary, just a point of reference, and it does not imply the \textit{absence of something}.
+
+Yet another example of interval scale is the one used for judging something, as in: in a scale from one to ten how good did they perform?
+
+ 
+\newpage
+\subsubsection{Uncertainty in Measurement}
+Whenever we measure or record observations there will always exist uncertainty; in other words, there will always be a chance that our results contain errors.
+
+\noindent In statistics Uncertainty is a measure of Precision. So, our first task is to understand Precision, and the related concept of Accuracy.
+
+\Index{Precision} tells us how close to each other several observations are. The closer they are, the more precise our results.
+
+\Index{Accuracy} refers to how close in the average observations are to the accepted value. We don't always have information about this accepted value, and when this happens we assume that our observations are accurate, and take their average to be the "accepted" value.
+\vspace{0.5cm}
+\noindent Now let's try to understand how precision affects our study. 
+
+\begin{center}
+\textbf{Estimates:}
+\end{center}
+
+Suppose that we are asked to \Index{Estimate} the number of hours per year dedicated to learning. If we consider the time spent in class, plus the time doing homework, plus the time learning as a hobby to be the totality of learning situations, then the average student probably spends over \(2,000\) hours per year learning.
+\\
+
+\noindent Now imagine that we need to Estimate the number of words spoken by a person on an average day. That number is probably around \(10,000\).
+\\
+Finally, let's Estimate the number of cats in China to be around \(150,000,000\).
+\\
+What do these numbers have in common? They have a lot of zeroes.
+They are also most likely wrong by a large margin.
+\\
+
+\noindent Whenever we Estimate a quantity we tend to round to the closest power of 10. The process of rounding gives us an interval of values that the number can take.
+
+\begin{adjustwidth}{0cm}{1cm}
+\begin{itemize}
+\item \(2,000\) can be the result of rounding any number between \(1,500\) and \(2499\); which leads us to the notion that there is an uncertainty of about \(500\) in this observation. Notice that all the digits in the boundaries of this interval are different, so we are not really sure of the value of any of the digits.
+
+\item \(10,000\) can be the result of rounding any number between \(5,000\) and \(14,999\); yielding an uncertainty of about \(5,000\) in this observation. Here, too, the digits in the boundaries of the interval are all different, so we can't tell for sure if we are in the thousands or in the ten thousands.
+
+\item \(150,000,000\) can be the result of rounding any number between    
+\\ \(145,000,000\) and \(154,999,999\); so this observation has an uncertainty of about \(5,000,000\). In this case, the first digit remains constant throughout the entire interval. That means we are Certain that the observation is at least \(100,000,000\)
+\end{itemize}
+\end{adjustwidth}
+\vspace{0.5cm}
+
+Can you see how the uncertainty associated with Estimates is a very large percentage of the actual quantities?
+\vspace{0.5cm}
+In fact, if we rewrite our Estimates using \Index{Scientific Notation} we can reach an interesting conclusion:
+
+\begin{adjustwidth}{1cm}{1cm}
+\(2\times 10^3\) means we have an observation of size \(2\) in units of \(10^3\), while the uncertainty in these same units is given as \(0.5\times 10^3\).
+\\
+\(1\times 10^4\) means we have an observation of size \(1\) in units of \(10^4\), while the uncertainty in these same units is given as \(0.5\times 10^4\).
+\\
+Finally, \(1.5\times 10^7\) means we have an observation of size \(1.5\) in units of \(10^7\), while the uncertainty in these same units is given as \(0.5\times 10^7\).
+
+\end{adjustwidth}
+\vspace{0.3cm}
+So we see that the uncertainty of an Observation is \textbf{half of the smallest unit}.
+
+Now let us imagine that we know for sure that the number of hours spent learning is actually \(2,000\). We have counted them. Then how can we represent them so that it does not seem to be an Estimate or the result of rounding?
+
+To communicate that our \textbf{Precision} in this particular Observation is larger, we write:
+\(2.000\times 10^3\)
+
+So what did we do there to increase the precision? Although it looks like we increased the number of decimals, that is only because we are using scientific notation. In reality the number is still two thousand, which is an integer. What we really changed is the number of \Index{Significant Figures}. 
+
+\vspace{0.5cm}
+\begin{center}
+\textbf{Significant Figures:}
+\end{center}
+
+Significant 
+\isimportant{Exact quantities like \(\pi\) or \(\sqrt{3}\) or the number 2 in the formula \(D=2r\) have infinite significant figures. \\When approximated as \(3.1416\) Pi now has 5 \textit{s.f.}}{}
+figures are a simple indicator of precision. How do they work?
+
+\begin{adjustwidth}{0cm}{1cm}
+\begin{itemize}[noitemsep]
+\item Non-zero digits are always significant; \(123\) has three \textit{s.f.}, while \(125,483\) has six \textit{s.f.}, but \(1,300\) has only two \textit{s.f.}.
+\item Any zeros between two significant digits are significant; 503 has three \textit{s.f.}, \(10,001\) has five \textit{s.f.}.
+\item A final zero or trailing zeros in the decimal portion ONLY are significant; \(207.0\) has four \textit{s.f.}, \(5.00\) has three \textit{s.f.}, and \(100,000,000.0\) has ten \textit{s.f.}.
+\end{itemize}
+\end{adjustwidth}
+\vspace{0.3cm}
+
+\noindent The higher the number of significant figures the higher the precision in our observations.
+\\
+When do operations with 2 quantities with different number of significant figures, our result should be rounded so that we keep the \textbf{least} significant figures.
+\\
+So, for example, if we have two observations— \(212\) and \(44\)— and we multiply them our answer should be written to two significant figures, \ie \(9,300\) instead of \(9,328\). This is because the observations carry uncertainty. 
+
+
+\begin{center}
+\textbf{Decimal Places:}
+\end{center}
+
+Although very useful, significant figures are not the only indicator of precision; \Index{Decimal Places} are commonly utilized to indicate that the measurements were performed with a higher precision. So a measurement of \(25cm\) has less precision than a measurement of \(25.00cm\) because the first one has zero decimal places and the second one has two \textit{d.p.}
+
+The rules are simple: 
+
+\begin{adjustwidth}{0cm}{1cm}
+\begin{itemize}
+\item The more decimals in an observation, the more precise it is. 
+\item If two quantities with a different number of decimal places are added or subtracted, we keep the higher number of digits.
+\item If two quantities with a different number of decimal places are operated in any other way, we keep the least decimal places.
+\end{itemize}
+\end{adjustwidth}
+
+When you do calculations with measured values, make sure to indicate whether you are using significant figures or decimal places as your method to indicate precision.
+
+Finally, we have the \Index{Absolute Error} method to represent uncertainty. 
+
+\vspace{0.5cm}
+\begin{center}
+\textbf{Measurement Error:}
+\end{center}
+
+When observations come directly from measurement, or if we have a knowledge of the uncertainty of our method of our experiment, we can attach the error to the observation in the form of \(x \pm \Delta x\) where \(x\) is the observed value and \(\Delta x\) is the uncertainty associated with the observation, known as the \textbf{absolute error}.
+\\
+
+The absolute error from measurement is always given as half of the smallest reading unit in the instrument used. So an average ruler, with millimeter marks produces observations with an uncertainty of \(0.5mm\).
+\\
+
+Yet, the absolute error does not necessarily give an accurate picture of the magnitude of the error. For example, given two observations with the same absolute error \(\Delta x= 0.5cm\); now let's say that the first observation is 
+\begin{equation}
+    \begin{aligned}
+    x_1 &= 25.5 \pm 0.5cm
+    \\
+    x_2 &= 312.5 \pm 0.5cm
+    \end{aligned}
+\end{equation}
+
+ 
+\newpage
+It is obvious that the second observation is much better than the first one. Yet the absolute error does not display that. To better represent the relative accuracy we use the \index{Relative Error} or the \Index{Percentage Error}
+
+
+\begin{equation}
+    \texttt{Relative Error} = \frac{\Delta x}{x}
+\end{equation}
+
+\begin{equation}
+    \texttt{Percentabe Error} = \left(\frac{\Delta x}{x}\right)\times 100\%
+\end{equation}
+
+Now, what do we do with these quantities? We use them to measure the error in calculated quantities.
+
+For example, if we are adding or subtracting two quantities, their absolute errors add:
+
+Let \(z = x \pm y\), then 
+\begin{equation}
+    \Delta z = \Delta x + \Delta y
+    \label{eq:error_addition}
+\end{equation}
+
+While when we are multiplying or dividing two quantities, their relative errors add:
+
+\begin{equation}
+    \frac{\Delta z}{z} = \frac{\Delta x}{x} + \frac{\Delta y}{y}
+    \label{eq:error_product}
+\end{equation}
+\vspace{1cm}
+
+\subsubsection{First vs Second Hand Data}
+Where does data come from? Well, usually somebody collected it, either through a survey, an experiment, a study, direct measurements, or estimates.
+\\
+
+When the person analyzing the data is the same one in charge of the process of collection, then we have \Index{First Hand Data}. And when the data was gathered by someone else then we have \Index{Second Hand Data}. The big deal about the differentiation between these two types of data is that with First hand we know exactly how far we can trust the numbers: We know the types of biases introduced by our sampling method, our survey or experimental design, we know the purpose the data was gathered for, and we have an idea of the uncertainty that it carries. 
+\\
+
+When we are dealing with Second hand data, we do not necessarily know all that. So, what do we need to know in order to trust second hand data?
+
+First, we need to know \textbf{Who collected the data}.
+ 
+\newpage
+
+\begin{center}
+\textbf{Good Second Hand Data Source}
+\end{center}
+
+\begin{multicols}{2}
+\begin{itemize}
+\item Government Documents
+\item Official Statistics
+\item Technical Reports
+\item Scholarly Journals
+\item Trade Journals
+\item Review Articles
+\item Reference Books
+\item Research Institutions
+\item Universities
+\item Libraries, Library Search Engines
+\item Computerized Databases
+\item The World Wide Web 
+\end{itemize}
+\end{multicols}
+
+Then we will check for the following, and the more we can verify, the more we can trust the data.
+\begin{center}
+\textbf{Evaluating Second Hand Data Sources}
+\end{center}
+
+\begin{itemize}
+\item Try to Confirm the Credentials of the Author(s) of the Information
+\item Does it include a methods section and are the methods sound?
+\item What’s the Date of Publication? 
+\item Is the Document or Report Well Referenced?
+\item Is the Data in a large reputable publication?
+\item Who is the Intended Audience?
+\item Determine the Original Purpose of the Data Collection
+\end{itemize}
+
+%http://pqdl.care.org/Practice/DME%20-%20Tips%20for%20Collecting,%20Reviewing%20and%20Analyzing%20Secondary%20Data.pdf
+
+
+\subsubsection{Experimental vs Observational Studies}
+
+When we carefully gather significant data, we want to design a study. We will cover the steps of an effective study later, but for now we need to know the difference between the two major types of studies: \Index{Observational Studies} and \Index{Experimental Studies}.
+\\
+
+Both studies include at least two types of variables:
+\begin{Description}%{Independent Variables}
+\item[\Index{Independent Variables}] The quantity to which we assign different values during the study. In statistics these variables are also called \Index{Explanatory Variables}.
+\item[\Index{Dependent Variables}] The quantity that we measure (and possibly changes) during the study. In statistics these variables are also called \Index{Response Variables}.
+\end{Description}
+
+There exist another set of factors that could possibly affect the values of the dependent variable: They are referred to as extraneous factors, and they can be classified in two types, depending on whether or not we have identified them as possible factors: 
+
+\begin{Description}%{Confounding Variables}
+\item[Lurking Variables] Unidentified factors for the study
+\item[Confounding Variables] Identified factors for the study
+\end{Description}
+
+Of course, if we have identifies the factors, then we would like to do something to reduce or prevent their effects. If we do so, they become \Index{Controlled Variables}, and the study becomes an \Index{Experimental Study}.
+\\
+
+When we can't or we simply don't control the Confounding Variables then we are running an observational study.
+\\ 
+We will discuss next chapter the different experimental designs that allows us to control the confounding variables (and to a degree, the lurking variables as well).
+
+
+\subsubsection{Population vs Sample}
+Most of the time it will be impossible or cost and time ineffective to collect data from an entire \Index{Population}. So we will content ourselves with gathering data from a sector of the population, \ie a \Index{Sample}.
+\\
+Countries do, in fact, gather data about the entire (well most of it really) population. This is done through a \Index{Census}, which is a type of \Index{Survey} designed to collect demographic information on many aspects that have been deemed important by the government. Normally such Census can be utilized as an starting point (\Index{Preliminary Study}) for more specialized studies. If such a Census is not available, the Preliminary Study will be a relatively quick high-uncertainty study that allows researchers to get a feeling of the general conditions of the population, and plan accordingly.  
+\\
+Any quantity that can describe an aspect of the population is called a \Index{Parameter}. If the same quantity describes a sample, then it's called a \Index{Statistic}.
+
+\subsubsection{Degrees of Freedom}
+One of the major distinctions between studies involving Populations and studies involving samples, is that the latter is used to Estimate the \textbf{Parameters} of the Population, while in the first one we can directly calculate them.
+\\
+When we make predictions about the population, we have no choice but to use the values from the sample. Now imagine that we wish to estimate the value of the population's mean; to do so, the obvious choice is to use the sample's mean. 
+
+So far it's all easy: We have a sample of \(n\) independent observations, and we use it to predict the value of the population's mean. 
+\\
+The formula for the mean is given by:
+\begin{equation}
+    \bar{x} = \frac{\sum_{k=1}^n x_i}{d.f.}
+    \label{eq:mean}
+\end{equation}
+Where \textbf{d.f.} is the number of independent observations (\Index{Degrees of Freedom}), in this case \(n\).
+\\
+Next imagine that we want to estimate the \Index{Variance} of the population ( a measure of the average deviation from the mean). The formula for variance is given by:
+\begin{equation}
+    s_x^2 = \frac{\sum_{i=1}^n \left(x_i-\bar{x}\right)}{d.f.}
+    \label{eq:variance}
+\end{equation}
+
+Notice that the formula for Variance depends on the value of the Mean.
+
+If we know the value of the population's mean (\(\mu\)), then we substitute instead of \(\bar{x}\), and we use the values from the sample for the \(x_i\)'s. And since there are \(n\) independent \(x_i\)'s, the degrees of freedom \(d.f.=n\)
+\\
+However, if we don't know the value of the population's mean in advance, then we will first need to estimate it using the value of the sample's mean. When we do this, the \(x_i\)'s observations become related through the sample's mean — because now there exists a formula \textbf{connecting} these values together. Hence, when we do not know the population's mean in advance, the number of degrees of freedom is reduced by one, \ie \(d.f.=n-1\).
+
+\newpage
